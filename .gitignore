@@ -26,3 +26,5 @@ terraform.tfplan
 # Local environment files
 .terraform.lock.hcl
 
+sp_details
+
