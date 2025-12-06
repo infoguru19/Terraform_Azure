@@ -1,18 +1,9 @@
-
-resource "azurerm_resource_group" "boot-diag" {
-  name     = var.resource_group_name
-  location = "North Europe"
-}
-
-resource "azurerm_storage_account" "boot-diag" {
- 
-  name                     = "${var.storage_account}1607"
-  resource_group_name      = azurerm_resource_group.boot-diag.name
-  location                 = azurerm_resource_group.boot-diag.location# implicit dependency
+resource "azurerm_storage_account" "demope" {
+  name                     = "demopeaccount1607456"
+  resource_group_name      = azurerm_resource_group.example.name
+  location                 = azurerm_resource_group.example.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
-
-  tags = {
-    environment = "prd"
-  }
+  public_network_access_enabled = false
+  allow_nested_items_to_be_public = false
 }

@@ -64,7 +64,7 @@ resource "azurerm_virtual_machine" "main" {
   }
   boot_diagnostics {
     enabled     = true
-    storage_uri = azurerm_storage_account.boot-diag.primary_blob_endpoint
+    storage_uri = azurerm_storage_account.demope.primary_blob_endpoint
   }
   tags = {
     environment = "staging"
