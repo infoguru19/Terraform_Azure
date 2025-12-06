@@ -4,7 +4,10 @@
 # Terraform state files
 *.tfstate
 *.tfstate.*
+
 export
+**/backend.tf
+
 # Crash logs
 crash.log
 crash.*.log

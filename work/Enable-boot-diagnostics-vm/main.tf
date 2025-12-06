@@ -1,22 +1,10 @@
-variable "prefix" {
-  default = "tiyaranjan"
-}
-
-resource "azurerm_storage_account" "diag" {
-  name                     = "tiyaranjan16072016"
-  resource_group_name      = azurerm_resource_group.example.name
-  location                 = azurerm_resource_group.example.location # implicit dependency
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-
 resource "azurerm_resource_group" "example" {
-  name     = "${var.prefix}-resources"
+  name     = var.resource_group_name
   location = "North Europe"
 }
 
 resource "azurerm_virtual_network" "main" {
-  name                = "${var.prefix}-network"
+  name                = "${var.vm_name}-network"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
@@ -30,7 +18,7 @@ resource "azurerm_subnet" "internal" {
 }
 
 resource "azurerm_network_interface" "main" {
-  name                = "${var.prefix}-nic"
+  name                = "${var.vm_name}-nic"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
 
@@ -42,7 +30,7 @@ resource "azurerm_network_interface" "main" {
 }
 
 resource "azurerm_virtual_machine" "main" {
-  name                  = "${var.prefix}-vm"
+  name                  = "${var.vm_name}-vm"
   location              = azurerm_resource_group.example.location
   resource_group_name   = azurerm_resource_group.example.name
   network_interface_ids = [azurerm_network_interface.main.id]
@@ -76,7 +64,7 @@ resource "azurerm_virtual_machine" "main" {
   }
   boot_diagnostics {
     enabled     = true
-    storage_uri = azurerm_storage_account.demo.primary_blob_endpoint
+    storage_uri = azurerm_storage_account.boot-diag.primary_blob_endpoint
   }
   tags = {
     environment = "staging"
