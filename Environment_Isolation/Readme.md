@@ -19,3 +19,19 @@
 
 💡 Golden Rule:
 `One environment = One Terraform state`
+
+css ```
+project/
+│
+├── modules/
+│   └── vm/
+│       └── main.tf
+│
+├── dev/
+│   ├── main.tf
+│   └── terraform.tfvars
+│
+└── prod/
+    ├── main.tf
+    └── terraform.tfvars
+```
