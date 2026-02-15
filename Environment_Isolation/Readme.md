@@ -18,6 +18,4 @@
 ✅✅ (BEST PRACTICE): Separate State for Dev and Prod
 
 💡 Golden Rule:
-```
-One environment = One Terraform state
-```
+`One environment = One Terraform state`
