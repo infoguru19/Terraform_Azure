@@ -20,18 +20,5 @@
 💡 Golden Rule:
 `One environment = One Terraform state`
 
-css ```
-project/
-│
-├── modules/
-│   └── vm/
-│       └── main.tf
-│
-├── dev/
-│   ├── main.tf
-│   └── terraform.tfvars
-│
-└── prod/
-    ├── main.tf
-    └── terraform.tfvars
-```
+<img width="450" height="589" alt="image" src="https://github.com/user-attachments/assets/39a63102-a9d8-4a9f-93e9-99a2d37c073a" />
+
